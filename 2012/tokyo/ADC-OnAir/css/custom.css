@@ -1,0 +1,19 @@
+li {
+    line-height: 2em;
+}
+
+.reveal section img.no-frame {
+    margin: 0;
+    background: none;
+    border: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -ms-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear;
+}
