@@ -1,3 +1,15 @@
+#adobelogo {
+    position: absolute;
+    top: 0;
+    left: 40px;
+    height: 80px;
+    z-index: 3;
+    -webkit-transition: opacity 1s ease;
+    -moz-transition: opacity 1s ease;
+    -ms-transition: opacity 1s ease;
+    -o-transition: opacity 1s ease;
+}
+
 .reveal li {
     line-height: 2em;
 }
