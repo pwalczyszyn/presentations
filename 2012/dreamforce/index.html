@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link rel="icon"
+          type="image/png"
+          href="images/favicon.png"/>
+
+    <meta charset="utf-8">
+
+    <title>Building multiplatform mobile apps with force.com and PhoneGap</title>
+
+    <meta name="description"
+          content="Dreamforce 2012 presentation: Building multiplatform mobile apps with force.com and PhoneGap">
+    <meta name="author" content="Piotr Walczyszyn">
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet'
+          type='text/css'>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/print.css" type="text/css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+</head>
+
+<body>
+<header>
+    <img id="adobelogo" src="images/svg/adobe-vector.svg" alt="adobe">
+</header>
+
+<div class="reveal">
+
+<!-- Used to fade in a background when a specific slide state is reached -->
+<div class="state-background"></div>
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section>
+    <h2>Building multiplatform mobile apps with force.com and PhoneGap</h2>
+    <br/>
+
+    <h3 class="inverted">Piotr Walczyszyn | <a href="http://outof.me" target="_blank">outof.me</a> |
+        <a href="http://twitter.com/pwalczyszyn" target="_blank">@pwalczyszyn</a></h3>
+    <a class="test" href="http://phonegap.com" target="_blank">
+        <img width="280" height="326" class="no-frame" src="images/pg-logo-no-text.png">
+    </a>
+    <script>
+        // Delicously hacky. Look away.
+        if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)) document.write('<p style="color: rgba(0,0,0,0.3); text-shadow: none;">(' + 'Tap to navigate' + ')</p>');
+    </script>
+</section>
+
+<section>
+
+    <section>
+        <h2>Mobile Market Segmentation</h2>
+        <a href="http://www.idc.com/getdoc.jsp?containerId=prUS23523812" target="_blank">
+            <img src="images/mobile-segmentation.png" class="no-frame" style="height: 95%"/>
+        </a>
+    </section>
+
+    <section>
+        <h2><strong>Native</strong> vs. <strong>Hybrid</strong> vs. <strong>Web</strong></h2>
+        <img src="images/svg/3apps.svg" type="image/svg+xml" class="no-frame" style="height: 90%"/>
+    </section>
+
+    <section>
+        <img src="images/svg/native.svg" type="image/svg+xml" class="no-frame" style="height: 100%"/>
+    </section>
+
+    <section>
+        <h2><strong>Native</strong> - Pros</h2>
+        <br/>
+        <ul>
+            <li class="fragment">Best performance</li>
+            <li class="fragment">Consistent user experience</li>
+            <li class="fragment">Instant native APIs access</li>
+            <li class="fragment">App stores distribution & monetization</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2><strong>Native</strong> - Cons</h2>
+        <br/>
+        <ul>
+            <li class="fragment">Multiple programing languages</li>
+            <li class="fragment">High costs of development & maintenance</li>
+            <li class="fragment">Different development platforms</li>
+        </ul>
+    </section>
+
+    <section>
+        <img src="images/svg/hybrid.svg" type="image/svg+xml" class="no-frame" style="height: 100%"/>
+    </section>
+
+    <section>
+        <h2><strong>Hybrid</strong> - Pros</h2>
+        <h4 class="fragment">(PhoneGap/Cordova apps)</h4>
+        <br/>
+        <ul>
+            <li class="fragment">Multi-platform support</li>
+            <li class="fragment">Native API access</li>
+            <li class="fragment">Lower costs of development & maintenance</li>
+            <li class="fragment">App stores distribution & monetization</li>
+            <li class="fragment">Using new kid on the block HTML5/CSS3/JS stack</li>
+            <li class="fragment">Using existing skills in case of web devs</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2><strong>Hybrid</strong> - Cons</h2>
+        <h4>(PhoneGap/Cordova apps)</h4>
+        <br/>
+        <ul>
+            <li class="fragment">Performance depends on web engine implementations</li>
+            <li class="fragment">No OOTB user experience</li>
+            <li class="fragment">Limited graphical capabilities</li>
+            <ul class="fragment">
+                <li><a href="http://caniuse.com/#feat=webgl" target="_blank">No WebGL support yet</a></li>
+                <li><a href="http://caniuse.com/#feat=svg-html5" target="_blank">Limited SVG support</a></li>
+            </ul>
+        </ul>
+    </section>
+
+    <section>
+        <img src="images/svg/web.svg" type="image/svg+xml" class="no-frame" style="height: 100%"/>
+    </section>
+
+    <section>
+        <h2><strong>Web</strong> - Pros</h2>
+        <br/>
+        <ul>
+            <li class="fragment">Standard web distribution</li>
+            <li class="fragment">Using new kid on the block HTML5/CSS3/JS stack</li>
+            <li class="fragment">Any platform support</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2><strong>Web</strong> - Cons</h2>
+        <br/>
+        <ul>
+            <li class="fragment">Headaches of web development</li>
+            <ul class="fragment">
+                <li>Browsers fragmentation</li>
+                <li>Inconsistent Web Standards implementations</li>
+            </ul>
+        </ul>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h2>What is it?</h2>
+        <img src="images/svg/3apps-highlight.svg" type="image/svg+xml" class="no-frame" style="height: 90%"/>
+    </section>
+
+    <section>
+        <h2>PhoneGap - what is it for?</h2>
+        <br/>
+        <ul>
+            <li class="fragment">Data-centric apps , business type of apps</li>
+            <li class="fragment">Social networking</li>
+            <li class="fragment">Graphically simple games and animations </li>
+            <li class="fragment">Extending existing in-browser apps with native features</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>How do you use it?</h2>
+        <br/>
+        <img src="images/pg-diagram.png" class="no-frame">
+    </section>
+
+    <section>
+        <h2>Use your existing skills!</h2>
+        <br/>
+
+        <div class="fragment">
+            <img src="images/jquery-logo.png" style="padding-right: 25px" class="no-frame">
+            <img src="images/sencha-logo.png" style="padding-right: 25px" class="no-frame">
+            <img src="images/zepto-logo.png" style="padding-right: 25px" class="no-frame">
+            <img src="images/backbone-logo.png" style="padding-right: 25px" class="no-frame">
+            <img src="images/requirejs-logo.png" class="no-frame">
+        </div>
+
+        <br/>
+
+        <p class="fragment">
+            <i>... and much much more ...</i>
+        </p>
+
+    </section>
+
+</section>
+
+<section>
+    <section>
+        <h1>Let's see it in action!</h1>
+    </section>
+
+    <section>
+        <h2>BBC Olympics</h2>
+
+        <div>
+            <img src="images/demos/bbc-1.jpeg" style="width: 30%"/>
+            <img src="images/demos/bbc-2.jpeg" style="width: 30%"/>
+            <img src="images/demos/bbc-3.jpeg" style="width: 30%"/>
+        </div>
+    </section>
+
+    <section>
+        <h2>Wikipedia Mobile</h2>
+
+        <div>
+            <img src="images/demos/wiki-1.jpeg" style="width: 30%"/>
+            <img src="images/demos/wiki-2.jpeg" style="width: 30%"/>
+            <img src="images/demos/wiki-3.jpeg" style="width: 30%"/>
+        </div>
+    </section>
+
+    <section>
+        <h2>Untappd - Social Drinking</h2>
+
+        <div>
+            <img src="images/demos/untappd-1.jpeg" style="width: 30%"/>
+            <img src="images/demos/untappd-2.jpeg" style="width: 30%"/>
+            <img src="images/demos/untappd-3.jpeg" style="width: 30%"/>
+        </div>
+    </section>
+
+    <section data-state="alert">
+        <h2>SC Insight</h2>
+
+        <p><i>Adobe internal app</i></p>
+        <img src="images/demos/sci-1.png" style="width: 70%" class="no-frame"/>
+    </section>
+    <section data-state="alert">
+        <h2>SC Insight</h2>
+
+        <p><i>Adobe internal app</i></p>
+        <img src="images/demos/sci-2.png" style="width: 70%" class="no-frame"/>
+    </section>
+    <section data-state="alert">
+        <h2>SC Insight</h2>
+
+        <p><i>Adobe internal app</i></p>
+        <img src="images/demos/sci-3.png" style="width: 70%" class="no-frame"/>
+    </section>
+</section>
+
+<section>
+    <h2>Let's build something</h2>
+    <img src="images/demo-app-architecture.png" class="no-frame">
+</section>
+
+<section>
+    <h1>THE END</h1>
+
+    <h3 class="inverted">Piotr Walczyszyn | <a href="http://outof.me" target="_blank">outof.me</a> | <a
+            href="http://twitter.com/pwalczyszyn" target="_blank">@pwalczyszyn</a></h3>
+</section>
+</div>
+
+<!-- The navigational controls UI -->
+<aside class="controls">
+    <a class="left" href="#">&#x25C4;</a>
+    <a class="right" href="#">&#x25BA;</a>
+    <a class="up" href="#">&#x25B2;</a>
+    <a class="down" href="#">&#x25BC;</a>
+</aside>
+
+<!-- Presentation progress bar -->
+<div class="progress"><span></span></div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+
+<script>
+    // Load reveal.js as well as a classList polyfill if needed
+    head.js(!document.body.classList ? 'lib/js/classList.js' : null)
+            .js('js/reveal.js', function () {
+
+                // Parse the query string into a key/value object
+                var query = {};
+                location.search.replace(/[A-Z0-9]+?=(\w*)/gi, function (a) {
+                    query[ a.split('=').shift() ] = a.split('=').pop();
+                });
+
+                // Fires when a slide with data-state=customevent is activated
+                Reveal.addEventListener('customevent', function () {
+                    console.log('"customevent" has fired');
+                });
+
+                // Fires each time a new slide is activated
+                Reveal.addEventListener('slidechanged', function (event) {
+                    // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+                });
+
+                // Full list of configuration options available here:
+                // https://github.com/hakimel/reveal.js#configuration
+                Reveal.initialize({
+                    controls:true,
+                    progress:true,
+                    history:true,
+                    rollingLinks:false,
+                    theme:query.theme || 'default', // default/neon/beige
+                    transition:query.transition || 'default' // default/cube/page/concave/linear(2d)
+                });
+
+            });
+
+    // Load highlight.js for syntax highlighting of code samples
+    head.js('lib/js/highlight.js', function () {
+        hljs.initHighlightingOnLoad();
+    });
+
+    // If we're runnning the notes server we need to include some additional JS
+    // TODO Is there a better way to determine if we're running the notes server?
+    if (window.location.host === 'localhost:1947') {
+        head.js('socket.io/socket.io.js', 'plugin/speakernotes/client.js');
+    }
+</script>
+
+</body>
+</html>
